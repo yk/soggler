@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar color="whatsapp">
+    <ion-title>
+      GPU Stats
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="tournaments-page-content">
+    <h2>Turniere</h2>
+    <div *ngFor="let trn of tournaments | async">
+        <button ion-button outline>{{trn.name}}</button>
+    </div>
+
+    <h2>Turnier erstellen</h2>
+    <form (ngSubmit)="createTournament()">
+        <ion-item>
+            <ion-label>Name</ion-label>
+            <ion-input type="text" [(ngModel)]="newTournament.name" name="name"></ion-input>
+        </ion-item>
+        <button ion-button type="submit" [disabled]="!newTournament.name">Erstellen</button>
+    </form>
+
+
+
+  <!--<ion-list class="chats">-->
+    <!--<ion-item-sliding *ngFor="let chat of chats | async">-->
+      <!--<button ion-item class="chat" (click)="showMessages(chat)">-->
+        <!--<img class="chat-picture" [src]="chat.picture">-->
+        <!--<div class="chat-info">-->
+          <!--<h2 class="chat-title">{{chat.title}}</h2>-->
+
+          <!--<span *ngIf="chat.lastMessage" class="last-message">-->
+            <!--<p *ngIf="chat.lastMessage.type == 'text'" class="last-message-content last-message-content-text">{{chat.lastMessage.content}}</p>-->
+            <!--<span class="last-message-timestamp">{{ chat.lastMessage.createdAt | amCalendar }}</span>-->
+          <!--</span>-->
+        <!--</div>-->
+      <!--</button>-->
+      <!--<ion-item-options class="chat-options">-->
+        <!--<button ion-button color="danger" class="option option-remove" (click)="removeChat(chat)">Remove</button>-->
+      <!--</ion-item-options>-->
+    <!--</ion-item-sliding>-->
+  <!--</ion-list>-->
+</ion-content>
